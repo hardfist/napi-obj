@@ -1,3 +1,5 @@
 const lib = require('.');
-console.log('lib:',lib);
-lib.print({name: 'yj', age: 20});
+const obj = lib.printAsObj();
+console.log('obj:', obj, typeof obj);
+const str = lib.printAsString();
+console.log('str:', str, typeof str);
