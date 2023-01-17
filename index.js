@@ -246,8 +246,9 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { sum, printAsObj, printAsString } = nativeBinding
+const { sum, printAsNapiObj, printAsString, printAsValue } = nativeBinding
 
 module.exports.sum = sum
-module.exports.printAsObj = printAsObj
+module.exports.printAsNapiObj = printAsNapiObj
 module.exports.printAsString = printAsString
+module.exports.printAsValue = printAsValue

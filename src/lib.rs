@@ -4,6 +4,7 @@
 extern crate napi_derive;
 
 use serde::{Serialize, Deserialize};
+use serde_json::Value;
 
 
 #[napi]
@@ -29,8 +30,9 @@ pub struct AST {
   pub left: AddNode,
   pub right: MultNode
 }
+
 #[napi]
-pub fn print_as_obj() -> AST {
+pub fn print_as_napi_obj() -> AST {
   return AST {
     left: AddNode { left: "1".to_string(), right: "2".to_string() },
     right: MultNode { left: "1".to_string(), right: "2".to_string() }
@@ -45,4 +47,13 @@ pub fn print_as_string() -> String {
   };
   let str = serde_json::to_string(&ast).unwrap();
   str
+}
+#[napi]
+pub fn print_as_value() -> Value {
+  let ast =  AST {
+    left: AddNode { left: "1".to_string(), right: "2".to_string() },
+    right: MultNode { left: "1".to_string(), right: "2".to_string() }
+  };
+  let value =serde_json::to_value(&ast).unwrap();
+  value
 }

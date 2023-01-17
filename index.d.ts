@@ -16,5 +16,6 @@ export interface Ast {
   left: AddNode
   right: MultNode
 }
-export function printAsObj(): Ast
+export function printAsNapiObj(): Ast
 export function printAsString(): string
+export function printAsValue(): any
